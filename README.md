@@ -23,7 +23,7 @@
 ## 安装步骤
 本项目是使用vue-cli脚手架生成的项目，项目代码可以到我的github上clone下来。clone下来之后可进入文件目录
 
-	git clone https://github.com/lin-xin/notepad.git
+	git clone https://github.com/wzzz90/notebook.git
 	cd notepad
 	npm install
 	npm run dev
