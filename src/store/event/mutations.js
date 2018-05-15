@@ -10,6 +10,7 @@ const getDate = () => {//获取当天日期
 export default {
   changeShow(states) {
     states.state.showMore = !states.state.showMore
+    console.log(states.state.showMore)
   },
   
   clearData(states) {

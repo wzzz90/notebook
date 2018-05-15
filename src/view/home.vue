@@ -13,7 +13,6 @@
 <!--       <Footer></Footer>-->
         
         <div class="mask" v-show="showSidebar" @click.stop="goback" ref="mask"></div>
-        
         <!--<div id="promoNode">
         	<video id="video" width="640" height="480" autoplay></video>
           <button id="snap" class="sexyButton">Snap Photo</button>
@@ -68,6 +67,7 @@
           showSidebar(val) {
             const mask = this.$refs.mask
             
+            console.log(val)
             if(val) {
               if(mask) document.body.appendChild(mask)
             } else {
@@ -81,6 +81,12 @@
           },
           
         },
+        beforeDestroy() {
+          const mask = this.$refs.mask
+          if(mask) document.body.removeChild(mask)
+          
+        },
+        
         mounted() {
           
           if((this.$route.path == '/' || this.$route.path == '/index') && this.showSidebar === true) {
@@ -127,6 +133,8 @@
 //        }, false);
           
         },
+        
+        
         methods: {
             
             //删除数据

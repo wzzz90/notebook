@@ -5,13 +5,15 @@ import packageJson from '../../package.json'
 
 import event from './event'
 import theme from './theme'
+import auth from './auth'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
     event,
-    theme
+    theme,
+    auth
   },
     
       // 使用 vuex-localStorage 持久化页面状态

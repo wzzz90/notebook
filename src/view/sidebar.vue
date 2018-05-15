@@ -16,7 +16,14 @@
         <li>
             <button class="tools-btn" @click="clearData">清空数据</button>
         </li>
+        <li>
+            <button class="tools-btn" @click="loginOut">注销用户</button>
+        </li>
     </ul> 
+        <div class="touxiang">
+          <img src="../assets/login-bg.jpg"/>
+          <p>{{this.$store.getters.getUser}}</p>
+        </div>
     <transition name="dialog">
         <Dialog v-show="dialog" :dial_Data="dial_Data" @cancel="dialog = false" @confirm="confirmDial"></Dialog>
     </transition>    
@@ -53,6 +60,13 @@
                 this.dial_Data.msg = '您确定要清空数据？'
                 this.dialog = true
            },
+           
+           loginOut() {
+              this.dial_Data.dial_type = 'loginOut'
+              this.dial_Data.msg = '您确定要退出登录吗？'
+              this.dialog = true
+           },
+           
            openTable() {
                this.$router.push('table')
            },
@@ -85,10 +99,17 @@
                       this.dialog = false
                       this.$toast('清空数据成功')
                     break;
-                    case 'delData':
-                        this.dialog = false
-                        this.$store.commit('delItem', this.del_info)
-                        this.$toast('删除成功')
+                  case 'loginOut':
+                    this.dialog = false
+                    this.$store.commit('loginOut')
+                    //this.$store.commit('changeShow')
+                    this.$toast('退出成功')
+                    break;
+                  case 'delData':
+                    this.dialog = false
+                    this.$store.commit('delItem', this.del_info)
+                    this.$toast('删除成功')
+                    break;
                   default:
                     break;
                 }
@@ -100,7 +121,10 @@
 <style lang="scss" scoped="scoped">
     .item-tools{
         width:250px;
+        position: relative;
+        height: 100%;
         .tools-sidebar{
+          height: 100%;
             & > li{
                 line-height: 60px;
             }
@@ -120,6 +144,18 @@
                 family:  arial,"microsoft yahei";
             }
             line-height: 20px;
+        }
+        .touxiang {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 80px;
+          img {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;  
+            margin-bottom: 5px;          
+          }
         }
     }
     .mask {

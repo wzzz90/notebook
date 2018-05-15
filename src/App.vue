@@ -49,7 +49,7 @@ export default {
     }
     #app{
         height: 100%;
-        padding-bottom: 60px;
+/*        padding-bottom: 60px;*/
         box-sizing: border-box;
     }
 
