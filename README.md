@@ -35,7 +35,7 @@
 	cnpm install node-sass -D
 	
 
-## 主要难点
+## 主要功能与实现
 
 ### 1.登录功能
 
